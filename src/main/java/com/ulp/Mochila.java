@@ -29,10 +29,11 @@ public class Mochila {
     }
     
    
-    public void agregarObjeto(ObjetoMovil obj) {
+    public boolean agregarObjeto(ObjetoMovil obj) {
         if (this.items.size() < this.capacidadMaxima) {
             this.items.add(obj);
             System.out.println("Se agrego bien el objeto");
+            return true;
         } else {
             System.out.println("No hay espacio suficiente en la mochila");
             throw new ArrayIndexOutOfBoundsException("LA MOCHILA SUPERO LA CAPACIDAD MAXIMA");

@@ -58,9 +58,8 @@ public class UsuarioTest {
         int contrasenaCreada = 2222;
         boolean resultadoValidacion = usr.validarPassword(contrasenaCreada);
         
-        Assertions.assertFalse(resultadoValidacion); 
-        // le puse assertFalse porque esperamos un false en este caso
-        //asi nos da todo en verde, estoy esperando que falle y controlo eso
+        Assertions.assertTrue(resultadoValidacion); 
+
         
     }
 
@@ -86,11 +85,11 @@ public class UsuarioTest {
     @Test
     public void testDelay() throws InterruptedException{
     
-        assertTimeout(Duration.ofMillis(100), () -> {
+        assertTimeout(Duration.ofMillis(30), () -> {
             usr.delay(50);
         });
-        // aca hice lo mismo que en la primera, le puse 
-        // mayor tiempo (100 ms) para que no tire error, porque espera que tarde ese tiempo
+
+
     }
 
     

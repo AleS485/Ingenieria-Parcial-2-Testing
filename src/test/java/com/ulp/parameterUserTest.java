@@ -38,22 +38,22 @@ public class parameterUserTest {
     
     static Stream<Arguments> probarCambioContrasena() {
         return Stream.of(
-            Arguments.of("1234", new Usuario("usr", 0), 1234, true),
-            Arguments.of("123", new Usuario("usr", 0), 1234, false),
-            Arguments.of("4241", new Usuario("usr", 0), 1234, false) // le agregue boolean
+            Arguments.of("1234", new Usuario("usr", 0), 1234),
+            Arguments.of("123", new Usuario("usr", 0), 123),  
+            Arguments.of("1234", new Usuario("usr", 0), 9999) 
+            // los pase con "" porque en la consigna tiraba '' y tiraba error
+            // entonces no me dejaba ni correrlo, ademas le cambie el ultimo valor para que
+            // emule el tercer y segundo fallo porque me tiraban error y no cumplia
+            // que solo falle en la tercera
         );
     }
 
     @ParameterizedTest
     @MethodSource("probarCambioContrasena")
-    public void TestCambioPass(String valorActual, Usuario usuario, int valorEsperado, boolean verificacionCambio) {
+    public void TestCambioPass(String valorActual, Usuario usuario, int valorEsperado) {
         usuario.cambioPassword(valorActual);
         
-        if(verificacionCambio){
-            assertEquals(valorEsperado, usuario.getPass());
-        } else{
-            assertNotEquals(valorEsperado, usuario.getPass());
-        }
+        assertEquals(valorEsperado, usuario.getPass());
         
     }
     

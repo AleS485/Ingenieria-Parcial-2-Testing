@@ -36,7 +36,7 @@ public class MochilaTest {
     public void despuesDeCada() {
     }
 
-    @Test // este es el caso a explicado en telegram
+    @Test // esto para el caso a
     public void testGuardadoObjetosMaximo() {
         Comida c1 = new Comida(10, 1);
         Comida c2 = new Comida(10, 1);
@@ -46,10 +46,13 @@ public class MochilaTest {
         this.mochila.agregarObjeto(c2);
         this.mochila.agregarObjeto(c3);
 
-        assertEquals(3, this.mochila.getItems().size());
+        assertTrue(this.mochila.getItems().contains(c1));
+        assertTrue(this.mochila.getItems().contains(c2));
+        assertTrue(this.mochila.getItems().contains(c3));
+        assertEquals(3, this.mochila.getItems().size());// esta para el tamano
     }
     
-    @Test // este es el caso b explicado en telegram
+    @Test // esto para el caso b
     public void testMochilaLlenaException() {
         Comida c1 = new Comida(10, 1);
         Comida c2 = new Comida(10, 1);
@@ -60,15 +63,13 @@ public class MochilaTest {
         this.mochila.agregarObjeto(c2);
         this.mochila.agregarObjeto(c3);
 
-        try {
-            this.mochila.agregarObjeto(c4); 
-            fail("SALTA EXCEPCION ARRAYINDEXOUTOFBOUNDS");
-        } catch (ArrayIndexOutOfBoundsException errorTamano) {
-            assertNotNull(errorTamano.getMessage());
-        }
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+            this.mochila.agregarObjeto(c4);
+        });   
+        assertEquals(3, this.mochila.getItems().size());
     }
     
-    @Test // este es el caso c explicado en telegram
+    @Test // este es el caso c 
     public void testAmpliacionYGuardarMochila() {
         Comida c1 = new Comida(10, 1);
         Comida c2 = new Comida(10, 1);
@@ -81,7 +82,7 @@ public class MochilaTest {
 
         this.mochila.ampliarCapacidad(5); 
         this.mochila.agregarObjeto(c4);
-        
+        assertTrue(this.mochila.getItems().contains(c4));
         assertEquals(4, this.mochila.getItems().size());
     }
     

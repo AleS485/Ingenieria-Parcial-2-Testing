@@ -52,8 +52,8 @@ public class PersonajeTest {
     @Test   // este es el caso b explicado en telegram 
     public void testGolpeCombatirMataEnemigo() {
         
-        this.enemigo.setVida(50);
-        this.heroe.setCapacidadOfensiva(50);
+        this.enemigo.setVida(30);
+        this.heroe.setCapacidadOfensiva(30);
         this.heroe.combatir(this.enemigo);
         assertEquals(0, this.enemigo.getVida());
         
@@ -62,14 +62,23 @@ public class PersonajeTest {
     @Test // este es el caso c explicado en telegram 
     public void testGolpeDanoMuyGrande() {
         
-        this.enemigo.setVida(30);
-        this.heroe.setCapacidadOfensiva(120);
+        this.enemigo.setVida(10);
+        this.heroe.setCapacidadOfensiva(50);
         this.heroe.combatir(this.enemigo);
         assertEquals(0, this.enemigo.getVida());
         
     }
      
-    @Test   // aca compruebo el tema de que el personaje coma y llegue al limite de vida
+    @Test // este es el caso d
+    public void testCurarVida() {
+        this.heroe.setVida(30); 
+        Comida manzana = new Comida(15, 1); 
+        
+        this.heroe.curarVida(manzana);
+        assertEquals(45, this.heroe.getVida()); 
+    }
+    
+    @Test   // aca compruebo el tema de que el personaje coma y llegue al limite de vida (estaba en telegram)
     public void testCuracionPorComidaMaxima() {
         this.heroe.setVida(80); 
         Comida manzana = new Comida(50, 1); 
@@ -77,6 +86,12 @@ public class PersonajeTest {
         assertEquals(100, this.heroe.getVida());
     }
     
+    @Test // este es el caso e
+    public void testNoPuedeCurarse() {
+        assertThrows(NullPointerException.class, () -> {
+            this.heroe.curarVida(null);
+        });
+    }
     
     
 }
