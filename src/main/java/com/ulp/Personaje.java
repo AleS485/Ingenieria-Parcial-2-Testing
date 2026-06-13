@@ -25,7 +25,7 @@ public abstract class Personaje extends EntidadJuego{
         this.habilidades = new ArrayList<Habilidad>(); 
     }
 
-
+    
     public Personaje(int x, int y, int nivelEnergia, int numeroVidas, int capacidadOfensiva, int ancho, int alto, String textura) {
         super(x, y); 
         this.nivelEnergia = nivelEnergia;
