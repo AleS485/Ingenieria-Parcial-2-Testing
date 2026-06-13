@@ -16,6 +16,22 @@ public class Torre extends ObjetoInmovil{
         this.alcance = alcance;
         this.potenciaDisparo = potenciaDisparo;
     }
+
+    public int getAlcance() {
+        return alcance;
+    }
+
+    public void setAlcance(int alcance) {
+        this.alcance = alcance;
+    }
+
+    public int getPotenciaDisparo() {
+        return potenciaDisparo;
+    }
+
+    public void setPotenciaDisparo(int potenciaDisparo) {
+        this.potenciaDisparo = potenciaDisparo;
+    }
     
     
     

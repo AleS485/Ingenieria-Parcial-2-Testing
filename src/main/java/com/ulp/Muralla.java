@@ -18,6 +18,22 @@ public class Muralla extends ObjetoInmovil{
         this.nivelRecuperacion = nivelRecuperacion;
         this.mejoraDefensa = mejoraDefensa;
     }
+
+    public int getNivelRecuperacion() {
+        return nivelRecuperacion;
+    }
+
+    public void setNivelRecuperacion(int nivelRecuperacion) {
+        this.nivelRecuperacion = nivelRecuperacion;
+    }
+
+    public String getMejoraDefensa() {
+        return mejoraDefensa;
+    }
+
+    public void setMejoraDefensa(String mejoraDefensa) {
+        this.mejoraDefensa = mejoraDefensa;
+    }
     
     
     

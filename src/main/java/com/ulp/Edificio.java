@@ -17,6 +17,22 @@ public class Edificio extends ObjetoInmovil{
         this.vida = vida;
         this.resistenciaDisparos = resistenciaDisparos;
     }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    public int getResistenciaDisparos() {
+        return resistenciaDisparos;
+    }
+
+    public void setResistenciaDisparos(int resistenciaDisparos) {
+        this.resistenciaDisparos = resistenciaDisparos;
+    }
     
     
     

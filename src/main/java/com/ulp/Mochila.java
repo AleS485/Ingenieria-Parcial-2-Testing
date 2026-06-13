@@ -35,6 +35,7 @@ public class Mochila {
             System.out.println("Se agrego bien el objeto");
         } else {
             System.out.println("No hay espacio suficiente en la mochila");
+            throw new ArrayIndexOutOfBoundsException("LA MOCHILA SUPERO LA CAPACIDAD MAXIMA");
         }
     }
 

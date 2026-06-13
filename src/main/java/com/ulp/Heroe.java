@@ -1,6 +1,8 @@
 
 package com.ulp;
 
+import java.util.List;
+
 
 public class Heroe extends Personaje{
     
@@ -31,8 +33,13 @@ public class Heroe extends Personaje{
     
     public void combatir(Personaje npc) {
         this.atacar(); 
+        if(npc.getVida() - this.capacidadOfensiva <= 0){
+            npc.setVida(0);
+            System.out.println("MATASTE AL ENEMIGO");
+        }else{
+            npc.setVida(npc.getVida() - this.capacidadOfensiva);
+        }
         
-        npc.setVida(npc.getVida() - this.capacidadOfensiva);
         
         System.out.println("Despues de combatir la vida del oponente es de: " + npc.getVida());
     }
@@ -49,7 +56,14 @@ public class Heroe extends Personaje{
         
     }
     
-    
+    public List<ObjetoMovil> verMochila() {
+        if (this.miMochila != null) {
+            return this.miMochila.getItems(); 
+        } else {
+            System.out.println("EL HEROE NO TIENE MOCHILA");
+            return null;
+        }
+    }
     
     
     

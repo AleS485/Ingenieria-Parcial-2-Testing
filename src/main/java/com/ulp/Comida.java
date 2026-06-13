@@ -22,6 +22,22 @@ public class Comida extends ObjetoMovil{
         this.valorVida = valorVida;
         this.usos = usos;
     }
+
+    public int getValorVida() {
+        return valorVida;
+    }
+
+    public void setValorVida(int valorVida) {
+        this.valorVida = valorVida;
+    }
+
+    public int getUsos() {
+        return usos;
+    }
+
+    public void setUsos(int usos) {
+        this.usos = usos;
+    }
     
     
     

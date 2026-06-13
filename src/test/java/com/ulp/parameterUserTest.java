@@ -40,7 +40,7 @@ public class parameterUserTest {
         return Stream.of(
             Arguments.of("1234", new Usuario("usr", 0), 1234, true),
             Arguments.of("123", new Usuario("usr", 0), 1234, false),
-            Arguments.of("4241", new Usuario("usr", 0), 1234, false)
+            Arguments.of("4241", new Usuario("usr", 0), 1234, false) // le agregue boolean
         );
     }
 

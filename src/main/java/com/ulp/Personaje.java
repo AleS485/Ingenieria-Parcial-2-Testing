@@ -52,6 +52,18 @@ public abstract class Personaje extends EntidadJuego{
     }
     
     
+    public void curarVida(Comida c){
+        if(c.getUsos() > 0){
+            this.vida += c.getValorVida();
+            c.setUsos(c.getUsos() -1);
+            
+            if(this.vida > 100){
+                this.vida = 100;
+            }
+            System.out.println("TE CURASTE, AHORA TENES " + this.vida + " puntos de vida");
+        }
+    }
+    
     public void cambiarCoordenada(int nuevoX, int nuevoY) {
         this.x = nuevoX;
         this.y = nuevoY;
